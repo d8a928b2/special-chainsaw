@@ -44,7 +44,7 @@ class Tree:
 
         def __ne__(self, other):
             """Return True if other does not represent the same location."""
-            return not (self == other)  # opposite of __eq__
+            return not self == other  # opposite of __eq__
 
     # ---------- abstract methods that concrete subclass must support ----------
     def root(self):
