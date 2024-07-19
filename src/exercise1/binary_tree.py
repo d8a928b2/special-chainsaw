@@ -60,8 +60,7 @@ class BinaryTree(Tree):
     def inorder(self):
         """Generate an inorder iteration of positions in the tree."""
         if not self.is_empty():
-            for p in self._subtree_inorder(self.root()):
-                yield p
+            yield from self._subtree_inorder(self.root())
 
     def _subtree_inorder(self, p):
         """Generate an inorder iteration of positions in subtree rooted at p."""
@@ -70,8 +69,7 @@ class BinaryTree(Tree):
                 yield other
         yield p  # visit p between its subtrees
         if self.right(p) is not None:  # if right child exists, traverse its subtree
-            for other in self._subtree_inorder(self.right(p)):
-                yield other
+            yield from self._subtree_inorder(self.right(p))
 
     # override inherited version to make inorder the default
     def positions(self):
