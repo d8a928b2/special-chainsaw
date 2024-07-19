@@ -94,8 +94,7 @@ class Tree:
         """Return the height of the subtree rooted at Position p."""
         if self.is_leaf(p):
             return 0
-        else:
-            return 1 + max(self._height2(c) for c in self.children(p))
+        return 1 + max(self._height2(c) for c in self.children(p))
 
     def height(self, p=None):
         """Return the height of the subtree rooted at Position p.
@@ -118,8 +117,7 @@ class Tree:
     def preorder(self):
         """Generate a preorder iteration of positions in the tree."""
         if not self.is_empty():
-            for p in self._subtree_preorder(self.root()):  # start recursion
-                yield p
+            yield from self._subtree_preorder(self.root())  # start recursion
 
     def _subtree_preorder(self, p):
         """Generate a preorder iteration of positions in subtree rooted at p."""
